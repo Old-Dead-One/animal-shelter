@@ -2,7 +2,7 @@
 # change this list to be a list[Shelter]. You don't need to write code to convert
 # this list, just manually change it by hand.
 from fastapi import FastAPI, HTTPException
-from models import Shelter
+from backend.models import Shelter
 
 app = FastAPI()
 
