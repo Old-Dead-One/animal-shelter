@@ -3,8 +3,19 @@
 # this list, just manually change it by hand.
 from fastapi import FastAPI, HTTPException
 from backend.models import Shelter
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 shelters = [
     Shelter(
@@ -24,6 +35,12 @@ shelters = [
         name = "Animal Rescue Team",
         address = "1838 W 1020 N Ste. B, St. George, UT 84770",
         animals = {"cats": 4, "dogs": 7,}
+    ),
+    Shelter(
+        shelter_id = 4,
+        name = "Bo Diggidies Dogs",
+        address = "1838 W 1020 N Ste. B, St. George, UT 84770",
+        animals = {"cats": 0, "dogs": 7,}
     )
 ]
 
